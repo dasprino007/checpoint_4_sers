@@ -3,8 +3,6 @@ import memory_profiler
 import consts
 from datetime import datetime
 from pyJoules.energy_meter import EnergyContext
-from pyJoules.device.rapl_device import RaplPackageDomain
-from pyJoules.device.nvidia_device import NvidiaGPUDomain
 from pyJoules.handler.csv_handler import CSVHandler
 
 def insercoes_lista(lista : list, qnt : int):
@@ -18,7 +16,10 @@ def remocoes_lista(lista : list, qnt : int):
 def busca_lista(lista : list, qnt : int):
     for i in range(qnt):
         num = random.randint(1,len(lista) - 1) # pega um numero aleatorio 
-        lista.index(num) # procura o numero e retorna o indice dele
+        try: 
+            lista.index(num) # procura o numero e retorna o indice dele
+        except ValueError:
+            pass
 
 def testar_memoria_lista():
     lista = []
