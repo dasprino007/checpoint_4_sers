@@ -46,14 +46,5 @@ Execute esse comando:
 uv run main.py
 ```
 
-Cada execução cria uma nova subpasta com o timestamp, evitando que os gráficos das diferentes estruturas se sobrescrevam.
-
-## Estrutura dos CSVs
-
-| Arquivo | Colunas |
-|---|---|
-| `hashtable_energia.csv` | timestamp, tag, duration, package_0, dram_0, core_0, nvidia_gpu_0 |
-| `hashtables_tempo_execucao.csv` | nome, tempo_de_execucao |
-| `hashtables_memoria.csv` | nome, uso_maximo_memoria |
-
+## Observações
 > Os valores de energia nos CSVs estão em **microjoules**. O script converte para **Watts** usando `watts = (microjoules / 1_000_000) / duration`.
