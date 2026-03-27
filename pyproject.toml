@@ -4,4 +4,4 @@ version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
-dependencies = ["memory_profiler", "PyJoules", "nvidia-ml-py"]
+dependencies = ["memory_profiler", "PyJoules", "nvidia-ml-py", "pandas", "matplot"]

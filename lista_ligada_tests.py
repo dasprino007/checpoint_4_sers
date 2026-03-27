@@ -76,7 +76,7 @@ def testar_memoria_lista_ligada():
     memory_usage_busca = memory_profiler.memory_usage((busca_lista_ligada, (), {'lista': lista, 'qnt': consts.QNT_BUSCA}), max_usage=True)
     memory_usage_remocao = memory_profiler.memory_usage((remocoes_lista_ligada, (), {'lista': lista, 'qnt': consts.QNT_REM}), max_usage=True)
     
-    salvar_dados_memoria_csv("listas_ligada", memory_usage_insercao, memory_usage_busca, memory_usage_remocao)
+    salvar_dados_memoria_csv("lista_ligada", memory_usage_insercao, memory_usage_busca, memory_usage_remocao)
 
 def testar_tempo_lista_ligada():
     lista = LinkedList()

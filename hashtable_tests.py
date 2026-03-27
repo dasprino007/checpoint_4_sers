@@ -46,10 +46,10 @@ def testar_tempo_hashtable():
     start_time = datetime.now()
     remocoes_hashtable(hashtable, consts.QNT_REM)
     tempo_exec_remocao = datetime.now() - start_time
-    
+
     salvar_dados_tempo_csv("hashtables", tempo_exec_insert, tempo_exec_busca, tempo_exec_remocao)
 
-csv_handler = CSVHandler('data/hashtable_energia.csv')
+csv_handler = CSVHandler('data/hashtables_energia.csv')
 
 def testar_energia_hashtable():
     hashtable = {}

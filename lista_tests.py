@@ -51,7 +51,7 @@ def testar_tempo_lista():
 
     salvar_dados_tempo_csv("listas", tempo_exec_insert, tempo_exec_busca, tempo_exec_remocao)
 
-csv_handler = CSVHandler('data/lista_energiacsv')
+csv_handler = CSVHandler('data/listas_energia.csv')
 
 def testar_energia_lista():
     lista = []
