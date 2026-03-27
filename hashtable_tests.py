@@ -4,6 +4,7 @@ import consts
 from datetime import datetime
 from pyJoules.energy_meter import EnergyContext
 from pyJoules.handler.csv_handler import CSVHandler
+from dados_csv import salvar_dados_memoria_csv, salvar_dados_tempo_csv
 
 def insercoes_hashtable(hashtable: dict, qnt: int):
     for i in range(qnt):
@@ -24,9 +25,8 @@ def testar_memoria_hashtable():
     memory_usage_insercao = memory_profiler.memory_usage((insercoes_hashtable, (), {'hashtable': hashtable, 'qnt': consts.QNT_INS}), max_usage=True)
     memory_usage_busca = memory_profiler.memory_usage((busca_hashtable, (), {'hashtable': hashtable, 'qnt': consts.QNT_BUSCA}), max_usage=True)
     memory_usage_remocao = memory_profiler.memory_usage((remocoes_hashtable, (), {'hashtable': hashtable, 'qnt': consts.QNT_REM}), max_usage=True)
-    print(memory_usage_insercao)
-    print(memory_usage_busca)
-    print(memory_usage_remocao)
+
+    salvar_dados_memoria_csv("hashtables", memory_usage_insercao, memory_usage_busca, memory_usage_remocao)
 
 def testar_tempo_hashtable():
     hashtable = {}
@@ -46,12 +46,10 @@ def testar_tempo_hashtable():
     start_time = datetime.now()
     remocoes_hashtable(hashtable, consts.QNT_REM)
     tempo_exec_remocao = datetime.now() - start_time
+    
+    salvar_dados_tempo_csv("hashtables", tempo_exec_insert, tempo_exec_busca, tempo_exec_remocao)
 
-    print(tempo_exec_insert)
-    print(tempo_exec_busca)
-    print(tempo_exec_remocao)
-
-csv_handler = CSVHandler('data/hashtable-insercao.csv')
+csv_handler = CSVHandler('data/hashtable_energia.csv')
 
 def testar_energia_hashtable():
     hashtable = {}
